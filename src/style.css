@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 72px;
+}
+
+
+.progress {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+}
+
+.progress svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.control {
+  position: relative;
+  min-width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.value-input {
+  width: 50px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid black;
+  border-radius: 16px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+}
+
+.value-input:focus {
+  border-color: #005bff;
+}
+
+.switch {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.switch-ui {
+  position: relative;
+  width: 50px;
+  height: 32px;
+  flex-shrink: 0;
+  background: #d9d9d9;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.switch-ui::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 3px;
+  left: 3px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.switch:checked + .switch-ui {
+  background: #005bff;
+}
+
+.switch:checked + .switch-ui::after {
+  transform: translateX(18px);
+}
+
+.progress--hidden {
+  display: none;
+}
+
+.progress--animated {
+  animation: progress-rotate 1.5s linear infinite;
+}
+
+@keyframes progress-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (orientation: landscape) {
+  .progress-block {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+  }
+
+  .controls {
+    justify-content: center;
+  }
+}
