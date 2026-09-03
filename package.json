@@ -1,14 +1,18 @@
 {
   "name": "ozontask",
   "version": "0.0.0",
+  "homepage": "https://vedko04.github.io/ozontask",
   "private": true,
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "vite": "^8.2.2"
   }
 }
